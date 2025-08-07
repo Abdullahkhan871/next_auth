@@ -11,7 +11,7 @@ interface mailerValue {
 export const mailer = async ({ email, emailType, userId }: mailerValue) => {
   try {
     const hashedToken = await bcrypt.hash(userId.toString(), 10);
-    console.log(emailType === "VERIFY");
+    emailType === "VERIFY";
     if (emailType === "VERIFY") {
       await User.findByIdAndUpdate(
         userId,

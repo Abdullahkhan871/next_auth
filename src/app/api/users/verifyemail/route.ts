@@ -26,7 +26,6 @@ export const POST = async (req: NextRequest) => {
         status: 403,
       });
     }
-    console.log("user => ", user);
 
     user.isVerified = true;
     user.verifyToken = undefined;
