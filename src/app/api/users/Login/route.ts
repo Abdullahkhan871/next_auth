@@ -2,7 +2,8 @@ import { User } from "@/models/userModel";
 import { NextRequest, NextResponse } from "next/server";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
-
+import { db } from "@/db/db";
+db();
 export const POST = async (req: NextRequest) => {
   try {
     const reqBody = await req.json();
