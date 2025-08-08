@@ -54,10 +54,12 @@ export const mailer = async ({ email, emailType, userId }: mailerValue) => {
             : "Click to reset your Password"
         }
         </p>
-        <a href="${process.env.DOMAIN}/api/user/${
-        emailType === "VERIFY" ? "verify-email" : "reset-password"
+        <a href="${process.env.DOMAIN}/${
+        emailType === "VERIFY" ? "verifyemail" : "resetpassword"
       }?token=${hashedToken}" style="padding:15px; background-color: red;">Click Here</a>
-      <p>${hashedToken}</p>
+      <p>${process.env.DOMAIN}/${
+        emailType === "VERIFY" ? "verifyemail" : "resetpassword"
+      }?token=${hashedToken}</p>
       </div>`,
     };
 

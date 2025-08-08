@@ -6,7 +6,6 @@ db();
 export const POST = async (req: NextRequest) => {
   try {
     const userId = await getDataFromToken(req);
-
     if (!userId) {
       return NextResponse.json({
         message: "Unauthorized user",
@@ -14,13 +13,12 @@ export const POST = async (req: NextRequest) => {
         status: 400,
       });
     }
-
-    const user = User.findById({ _id: userId }).select("-password");
-
+    const user = await User.findById(userId).select("-password");
     return NextResponse.json({
       message: "User Profile found",
       success: true,
       status: 203,
+      data: [{ user }],
     });
   } catch (error: any) {
     return NextResponse.json({

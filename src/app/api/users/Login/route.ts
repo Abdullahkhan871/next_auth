@@ -28,7 +28,10 @@ export const POST = async (req: NextRequest) => {
         status: 400,
       });
     }
-    const token = jwt.sign({ id: user._id }, process.env.TOKEN_SECRET!, {
+    // const token = jwt.sign({ id: user._id }, process.env.TOKEN_SECRET!, {
+    //   expiresIn: "1d",
+    // });
+    const token = jwt.sign({ id: user._id }, "nextjsyoutube", {
       expiresIn: "1d",
     });
 
